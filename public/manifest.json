@@ -1,0 +1,14 @@
+{
+  "name": "Team-upturn",
+  "short_name": "Team-upturn",
+  "description": "Team-upturn",
+  "background_color": "#cccccc",
+  "theme_color": "#cccccc",
+  "theme-color:": "#cccccc",
+  "start_url": "/en",
+  "display": "standalone",
+  "dir": "auto",
+  "lang": "en-US",
+  "orientation": "any",
+  "icons": []
+}
