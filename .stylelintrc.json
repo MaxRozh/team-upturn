@@ -35,7 +35,6 @@
     "media-feature-range-operator-space-after": "always",
     "media-feature-colon-space-before": "never",
     "media-feature-colon-space-after": "always",
-    "unit-blacklist": ["em", "px"],
     "order/order": [
       "declarations",
       {
