@@ -19,6 +19,8 @@ pids
 *.pid.lock
 .eslintcache
 .stylelintcache
+public/sw.js
+public/workbox-*
 
 .env
 node_modules
