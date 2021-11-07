@@ -1,0 +1,17 @@
+/* stylelint-disable */
+
+.fluentProgressBarNormal {
+  background-color: #0078d4;
+  height: 0.25rem;
+  animation: progressBarAnimation 2s linear infinite;
+}
+
+@keyframes progressBarAnimation {
+  0% {
+    left: -50%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}

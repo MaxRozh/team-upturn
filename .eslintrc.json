@@ -24,7 +24,8 @@
   },
   "globals": {
     "Atomics": "readonly",
-    "SharedArrayBuffer": "readonly"
+    "SharedArrayBuffer": "readonly",
+    "JSX": "readonly"
   },
   "plugins": ["@typescript-eslint", "react", "prettier"],
   "rules": {

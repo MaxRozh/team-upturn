@@ -1,3 +1,17 @@
 {
-  "1": 1
+  "support": "Support",
+  "see_all_notifications": "See all notifications",
+  "your_profile": "Your profile",
+  "settings": "Settings",
+  "sign_out": "Sign out",
+  "sign_in": "Sign in",
+  "sign_up": "Sign up",
+  "faq": "FAQ",
+  "privacy": "Privacy & Policy",
+  "term_of_use": "Term of Use",
+  "menu": "Menu",
+  "social": "Socials",
+  "social_desc": "To be the first who know about updates and new features of the game - join our socials.",
+  "footer_desc_1": "If you have a desire to participate in the development of this application - please write to the email maxokay823@gmail.com",
+  "footer_desc_2": "We will be happy to share the development of this application with you."
 }

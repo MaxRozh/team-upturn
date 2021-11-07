@@ -8,25 +8,28 @@
     "jsx": "preserve",
     "moduleResolution": "node",
     "rootDir": "src",
+    "baseUrl": "src",
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "src",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "incremental": true,
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-    "incremental": true
+    "paths": {
+      "@svg/*": ["../public/svg/*"]
+    }
   },
   "include": [
     "next-env.d.ts",
