@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 import { Disclosure } from '@headlessui/react';
-import { TFunction, useTranslation} from 'next-i18next';
+import { TFunction, useTranslation } from 'next-i18next';
 
 import CloseSvg from '@svg/close.svg';
 import HamburgerSvg from '@svg/hamburger.svg';

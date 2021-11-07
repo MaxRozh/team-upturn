@@ -6,7 +6,7 @@ export interface NotificationItemType {
     type?: string;
     text: string;
   }>;
-};
+}
 
 export const notificationsList: Array<NotificationItemType> = [
   {
