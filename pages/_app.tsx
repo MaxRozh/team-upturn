@@ -1,14 +1,11 @@
 import React from 'react';
 import Head from 'next/head';
 import { withRouter } from 'next/router';
-import { ApolloProvider } from '@apollo/client';
 import { appWithTranslation } from 'next-i18next';
 
 // import MetaTags from 'components/meta-tags/MetaTags';
 import Layout from 'components/Layout';
-// import apolloClient from '../apollo-client';
 
-import { useApollo } from 'libs/apollo';
 // import theme from 'styles/theme';
 
 // import 'styles/normalize.css';
@@ -17,27 +14,25 @@ import 'tailwindcss/tailwind.css';
 interface PropsType {
   Component: any;
   pageProps: any;
-  router: Object;
-  err: string | Object;
+  router: object;
+  err: string | object;
 }
 
 function MyApp({ Component, pageProps, router, err }: PropsType) {
-  const apolloClient = useApollo(pageProps.initialApolloState);
-
   return (
     <>
-      {/*<MetaTags*/}
+      {/* <MetaTags*/}
       {/*  title="some title"*/}
       {/*  description="some desc"*/}
       {/*  image=""*/}
       {/*  url="https://domain"*/}
-      {/*>*/}
+      {/* >*/}
       {/*  <>*/}
       {/*    <meta name="viewport" content="width=device-width, initial-scale=1" />*/}
       {/*    <meta property="og:site_name" content="some site name" />*/}
       {/*    <meta property="og:type" content="website" />*/}
       {/*  </>*/}
-      {/*</MetaTags>*/}
+      {/* </MetaTags>*/}
       <Head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
@@ -51,12 +46,10 @@ function MyApp({ Component, pageProps, router, err }: PropsType) {
         <link rel="apple-touch-icon" href="/apple-icon.png" />
         <meta name="theme-color" content="#317EFB" />
       </Head>
-      <ApolloProvider client={apolloClient}>
-        <Layout>
-          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-          <Component router={router} err={err} {...pageProps} />
-        </Layout>
-      </ApolloProvider>
+      <Layout>
+        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+        <Component router={router} err={err} {...pageProps} />
+      </Layout>
     </>
   );
 }
