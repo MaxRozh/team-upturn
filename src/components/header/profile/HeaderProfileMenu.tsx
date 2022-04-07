@@ -24,12 +24,12 @@ function HeaderProfileMenu({ userStore, authStore, t }: PropsType) {
     <Menu as="div" className="ml-3 relative">
       <div>
         {/* eslint-disable-next-line max-len */}
-        <Menu.Button className="bg-gray-800 flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+        <Menu.Button className="bg-gray-800 text-gray-400 flex text-sm rounded-full focus:outline-none">
           <span className="sr-only">Open user menu</span>
           {user.img ? (
             <img className="h-8 w-8 rounded-full" src={user.img} alt="Profile avatar" />
           ) : (
-            <UserSvg className="h-8 w-8 rounded-full bg-gray-800" />
+            <UserSvg className="h-8 w-8 rounded-full" />
           )}
         </Menu.Button>
       </div>
