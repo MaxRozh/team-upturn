@@ -1,10 +1,10 @@
 import React from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-import SignInBlock from 'components/_block/sign-in/SignInBlock';
+import LoginForm from 'components/login/LoginForm';
 
 export default function SignInPage() {
-  return <SignInBlock />;
+  return <LoginForm isSignIn />;
 }
 
 export async function getServerSideProps({ locale, locales }: { locale: string; locales: Array<string> }) {
@@ -12,7 +12,7 @@ export async function getServerSideProps({ locale, locales }: { locale: string; 
     props: {
       locale,
       locales,
-      ...(await serverSideTranslations(locale, ['sign-in']))
+      ...(await serverSideTranslations(locale, ['sign-in', 'common']))
     }
   };
 }

@@ -1,14 +1,15 @@
 import React from 'react';
 
-type PropsType = {
+type IProps = {
   // className?: string;
   // label?: string;
   name: string;
   type?: string;
   placeholder?: string;
   // error?: { text: string };
-  defaultValue?: string;
+  required: boolean;
   onChange?: Function;
+  register: Function;
 };
 
 function UiInput({
@@ -17,10 +18,11 @@ function UiInput({
   name = '',
   type = 'text',
   placeholder,
+  required,
   // error,
-  defaultValue,
-  onChange
-}: PropsType) {
+  onChange,
+  register
+}: IProps) {
   // const hasError = error || errorText;
   // const finalClass = `${className}  ${
   //   hasError && 'border-red-600'
@@ -38,12 +40,12 @@ function UiInput({
       {/*)}*/}
       <div>
         <input
+          {...register(name, { required })}
           type={type}
           name={name}
           // eslint-disable-next-line max-len
           className="w-full border border-gray-300 rounded-sm px-4 py-3 outline-none transition-colors duration-150 ease-in-out focus:border-blue-400"
           placeholder={placeholder}
-          defaultValue={defaultValue}
           onChange={(e) => onChange?.(e.currentTarget.value)}
         />
         {/*{description && <span className="mt-2 text-gray-600 text-xs">{description}</span>}*/}
