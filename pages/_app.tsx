@@ -2,12 +2,14 @@ import React from 'react';
 import Head from 'next/head';
 import { withRouter } from 'next/router';
 import { appWithTranslation } from 'next-i18next';
+import { Provider } from 'mobx-react';
 
 // import MetaTags from 'components/meta-tags/MetaTags';
 import Layout from 'components/Layout';
 
-// import theme from 'styles/theme';
+import { useStore } from 'store';
 
+// import theme from 'styles/theme';
 // import 'styles/normalize.css';
 import 'tailwindcss/tailwind.css';
 
@@ -19,6 +21,8 @@ interface PropsType {
 }
 
 function MyApp({ Component, pageProps, router, err }: PropsType) {
+  const stores = useStore(pageProps.initialState);
+
   return (
     <>
       {/* <MetaTags*/}
@@ -46,10 +50,12 @@ function MyApp({ Component, pageProps, router, err }: PropsType) {
         <link rel="apple-touch-icon" href="/apple-icon.png" />
         <meta name="theme-color" content="#317EFB" />
       </Head>
-      <Layout>
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        <Component router={router} err={err} {...pageProps} />
-      </Layout>
+      <Provider {...stores}>
+        <Layout>
+          {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+          <Component router={router} err={err} {...pageProps} />
+        </Layout>
+      </Provider>
     </>
   );
 }

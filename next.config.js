@@ -35,6 +35,13 @@ const nextConfig = {
       use: ['@svgr/webpack']
     });
 
+    // COMMON PLUGINS
+    newConfig.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env.DOMAIN_API': JSON.stringify(process.env.DOMAIN_API)
+      })
+    );
+
     // DEV PLUGINS
     if (process.env.NODE_ENV === 'development') {
       newConfig.plugins.push(

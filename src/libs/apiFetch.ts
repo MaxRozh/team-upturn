@@ -1,4 +1,4 @@
-// import fetch from 'isomorphic-fetch';
+import fetch from 'isomorphic-fetch';
 
 import formatQueryStringUrl from 'utils/formatQueryStringUrl';
 import { DEFAULT_LOCALE } from 'constants/locales';
@@ -12,8 +12,10 @@ interface IUrlParams {
   params?: IQueryParams;
   token?: string;
 }
-interface IOptions {
-  method?: string;
+interface IFetchResult {
+  status: number;
+  isOk: boolean;
+  data: any;
 }
 
 function buildApiUrl(url: string, locale: string, params?: IQueryParams) {
@@ -21,28 +23,21 @@ function buildApiUrl(url: string, locale: string, params?: IQueryParams) {
   return params ? formatQueryStringUrl(fullUrl, params) : fullUrl;
 }
 
-export default function apiFetch(urlParams: IUrlParams, options?: IOptions): Promise<any> {
+async function apiFetch(urlParams: IUrlParams, options?: RequestInit): Promise<IFetchResult> {
   if (!urlParams || !urlParams.url) {
     if (process.env.NODE_ENV !== 'production') {
       throw new Error('Missed the "urlParams" in "apiFetch"');
     } else {
-      console.error('Missed the "urlParams" in "apiFetch"');
+      console.error('Missed the "params" in "apiFetch"');
     }
   }
 
   const { url, locale = DEFAULT_LOCALE, params } = urlParams;
   const fetchUrl = buildApiUrl(url, locale, params);
+  const res = await fetch(fetchUrl, options);
+  const data = await res.json();
 
-  if (options) {
-    // if (options.method && options.method !== 'GET' && token) {
-    //   if (!options.headers) {
-    //     options.headers = {}; // eslint-disable-line no-param-reassign
-    //   }
-    //   options.headers['X-CSRF-Token'] = token; // eslint-disable-line no-param-reassign
-    // }
-
-    return fetch(fetchUrl, options);
-  }
-
-  return fetch(fetchUrl);
+  return { status: res.status, isOk: res.ok, data };
 }
+
+export default apiFetch;
